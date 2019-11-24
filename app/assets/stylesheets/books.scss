@@ -1,0 +1,23 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd!important;
+}
+
+a{
+  color: #0056b3;
+}
+
+a:visited{
+  color:  #0056b3;
+}

@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8" style="margin-top: 20px">
+      <p id="notice"><%= notice %></p>
+
+      <h1 class="text-center">Books</h1>
+      <br/>
+      <div class="row">
+        <div class="col-md-8">
+          <%= form_tag(books_path, method: "get") do %>
+            <div class="input-group">
+              <%= text_field_tag :query, params[:query], placeholder: "Search by title, author and description", class: 'form-control'%>
+              <span class="input-group-btn">
+                <%= submit_tag 'Search', class:'btn btn-primary'%>
+              </span>
+            </div>
+            <div id="error" style="background-color: white; text-align: center"></div>
+          <% end %>
+        </div>
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6">
+              <%= link_to 'New Book', new_book_path, class: "btn btn-info form-control" %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <table style="margin-top: 30px">
+        <thead>
+          <tr>
+            <th>Isbn</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Language</th>
+            <th>Description</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @books.each do |book| %>
+            <tr>
+              <td><%= book.isbn %></td>
+              <td><%= book.title %></td>
+              <td><%= book.author.name %></td>
+              <td><%= book.language %></td>
+              <td><%= book.description %></td>
+              <td><%= link_to 'Show', book %></td>
+              <td><%= link_to 'Edit', edit_book_path(book) %></td>
+              <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

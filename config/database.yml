@@ -1,0 +1,8 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: bookshelf_development
+  pool: 5
+  username: bookshelf
+  password: bookshelf
+  host: localhost
